@@ -35,9 +35,9 @@ def oracle_help(category = None):
 
         print("VECTOR FUNCTIONS:")
         print("\tmag(A)")
-        print("\tscalar_by_vector(n, A)")
+        print("\tsca_by_vec(n, A)")
         print("\tdot(A, B)")
-        print("\tangle_between_vectors(A, B)")
+        print("\tang_btwn_vecs(A, B)")
         print("\tcross(A, B)")
         print("\tcenter(A, B)\n")
 
@@ -158,7 +158,7 @@ x component
 theta is in degrees
 """
 def xcomp(x, theta):
-    return x * cos(degrees(theta))
+    return x * cos(radians(theta))
 
 
 """
@@ -166,7 +166,7 @@ y component
 theta is in degrees
 """
 def ycomp(y, theta):
-    return y * sin(degrees(theta))
+    return y * sin(radians(theta))
 
 
 
@@ -188,10 +188,17 @@ def mag(A):
 
 
 """
+TODO: function that adds two vectors together,
+returning a vector of the same dimension as output
+note: this should work with vectors of any dimension
+"""
+
+
+"""
 Multiplies vector by scalar, returning new vector
 Parameters: scalar, vector (tuple/list)
 """
-def scalar_by_vector(n, A):
+def sca_by_vec(n, A):
 
     new_A = list(A)
     for dim in range(len(new_A)): new_A[dim] *= n
@@ -219,7 +226,7 @@ def dot(A, B):
 Finds angle between two vectors, in degrees
 Parameters: two vectors of the same dimensions, as tuples/lists
 """
-def angle_between_vecs(A, B):
+def ang_btwn_vecs(A, B):
     return degrees( acos(dot(A, B) / (mag(A)*mag(B))) )
 
 
